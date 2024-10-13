@@ -89,33 +89,13 @@ body {
     margin-bottom: 20px;
 }
 
-.btn-box {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.btn-1 {
-    background-color: black;
-    color:  white;
-    border: 2px solid  black;
-    border-radius: 8%;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 16px;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.btn-1:hover {
-    color:  black;
-    background-color:  white;
-    border: 2px solid  black;
-}
-
 .task-table thead {
     background-color: #f4f4f4;
+}
+
+.completed td {
+    text-decoration: line-through;
+    color: grey;
 }
 
 .task-table th,
@@ -140,5 +120,105 @@ body {
 }
 
 .complete-btn:hover {
-    background-color: #45a049;
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+.btn-box {
+    display: inline;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#btn-1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#btn-1:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+#btn-2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#btn-2:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+#taskInput {
+    padding: 9px;
+    width: 20%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.taskDesc {
+    padding: 9px;
+    width: 20%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.saveBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.saveBtn:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+.cancelBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cancelBtn:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+.editBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.editBtn:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
+}
+
+.deleteBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.deleteBtn:hover {
+    background-color:  rgba(112, 227, 116, 0.985);
 }

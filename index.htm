@@ -35,8 +35,11 @@
         <!-- Main Content -->
         <main class="main-content">
             <h2>Task List</h2>
-            <div class="btn-box">
-                <button class="btn-1">New Task</button>
+            <div>
+                <input type="text" id="taskInput" placeholder="Input Task Description">
+                <div class="btn-box">
+                    <button id="btn-1">Create New Task</button>
+                </div>
             </div>
             <table class="task-table">
                 <thead>
@@ -47,13 +50,12 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                    </tr>
+                <tbody id="taskTableBody">
+                    <!-- New tasks displayed here -->
                 </tbody>
             </table>
         </main>
     </div>
+<script src="./assets/js/script.js"></script>
 </body>
-
 </html>
