@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const storedTasks = JSON.parse(localStorage.getItem("tasks")) || []; // This allows the JSON string thats stored to be turned into an array or use an empty one if no pre existing tasks are stored.
 
         // This loops through all of the stored task and adds it to the table.
-        storedTasks.forEach(task => addTaskToTable(task)); // This repeats over each task and calls "addTaskToTask" function to add it to the table.
+        storedTasks.forEach(task => addTaskToTable(task)); // This repeats over each task and calls "addTaskToTable" function to add it to the table.
 
         // This adds an "eventListener" of "click" which means that when the "Create New Task" ("newTaskBtn" class) button is clicked then the following function is activated.
         newTaskBtn.addEventListener("click", function () {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete Task</button>
                 </td>
-            `; // The 3 buttons are all grouped under 1 "td" so they all appear under 1 column. The rest are all structured with an individual "td" so they appear in individual columns. "?" acts as an if else statement, where if "Complete" is shown then it will be green and if its something else then it will appear as red.
+            `; // The 3 buttons are all grouped under 1 "td" so they all appear under 1 column. The rest are all structured with an individual "td" so they appear in individual columns. "?" acts as an if else statement, where if "Complete" is shown as green and if its something else then it will appear as red.
             
             // This adds the new row to the "taskTableBody" by appending it under the created "newTr".
             taskTableBody.appendChild(newTr);
