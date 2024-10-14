@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (updateDesc) { // This checks if the "updateDesc" has a value.
                         taskDesc.innerHTML = updateDesc; // This will update the task description cell with the new value.
                         task.description = updateDesc; // This will update the task object with the new description.
-                        localStorage.setItem("task", JSON.stringify(storedTasks)); // This then saves the updated tasks to localStorage again.
+                        localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This then saves the updated tasks to localStorage again.
                     } 
                         else {
                             taskDesc.innerHTML = newDesc // This is will revert to the original description if the input has no value.
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const taskOrder = storedTasks.indexOf(task); // This will find the task's index in the "storedTasks" array.
                 if (taskOrder > -1) {
                     storedTasks.splice(taskOrder, 1); // This will remove the task from the array.
-                    localStorage.setItem("task", JSON.stringify(storedTasks)); // And finally this will now Save and Update the tasks to the "localStorage".
+                    localStorage.setItem("tasks", JSON.stringify(storedTasks)); // And finally this will now Save and Update the tasks to the "localStorage".
                 }
             })
         }
