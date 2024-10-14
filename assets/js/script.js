@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // This sets the "innerHTML" of the newly created "tr" with the task details and adds 3 new buttons which have class attached to a function.
             newTr.innerHTML = `
-                <td class="taskStatus" style="color ${task.status === "Complete" ? "green" : "red"}";>${task.status}</td> 
+                <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
                 <td class="taskDesc">${task.description}</td>
                 <td>${task.date}
                 <td>

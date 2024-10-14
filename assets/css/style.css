@@ -95,7 +95,6 @@ body {
 
 .completed td {
     text-decoration: line-through;
-    color: grey;
 }
 
 .task-table th,
