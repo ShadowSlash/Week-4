@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newTr.innerHTML = `
                 <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
                 <td class="taskDesc">${task.description}</td>
-                <td>${task.date}
+                <td>${task.date}</td>
                 <td>
                     <button class="complete-btn">Complete</button> 
                     <button class="editBtn">Edit</button>
