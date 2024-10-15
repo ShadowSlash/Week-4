@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
                 <td class="taskDesc">${task.description}</td>
                 <td>${task.date}</td>
-                <td class="comOr">
+                <td>
                     <button class="completeBtn">Complete</button> 
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete Task</button>
@@ -71,20 +71,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Here it now adds a "eventListener", again of "click", to the "complete-Btn" class and a funtion to follow.
             newTr.querySelector(".completeBtn").addEventListener("click", function() {
-                newTr.classList.toggle("completed"); // This toggles the "completed" class on the row where the task belong too.
-                task.status = newTr.classList.contains("completed") ? "Complete" : "Incomplete"; // This updates the "task.status" based on the class.
+                
                 newTr.querySelector(".taskStatus").textContent = task.status; // This updates the displayed text for the new "taskStatus".
                 newTr.querySelector(".taskStatus").style.color = task.status === "Complete" ? "green" : "red"; // This is what will change the color of the text from green to red or vice versa depending on the value.
                 this.remove(); // This removes the button from the row when its pressed to be more user friendly.
                 newTr.querySelector(".editBtn").remove(); // This uses a "querySelector" to grab the edit button for it to also be removed when the complete button is pressed.
-                const comOr = newTr.querySelector(".comOr");
-                const comOrDesc = comOr.textContent; 
-                comOrDesc.innerHTML = `
-                    <button class="restoreBtn">Restore</button>
-                    <button class="deleteBtn">Delete</button>
+                
+                newTr.innerHTML = `
+                    <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
+                    <td class="taskDesc">${task.description}</td>
+                    <td>${task.date}</td>
+                    <td>
+                        <button class="restoreBtn">Restore</button>
+                        <button class="deleteBtn">Delete Task</button>
+                    </td>
                 `;
+                newTr.querySelector(".deleteBtn").addEventListener("click", function() {
+                    newTr.remove(); // This removes the entire task row from the table.
+                    const taskOrder = storedTasks.indexOf(task); // This will find the task's index in the "storedTasks" array.
+                    if (taskOrder > -1) {
+                    storedTasks.splice(taskOrder, 1);// This will remove the singular task from the array.As the numerical value shown means singular. If a higher number was put in its place i.e "2", then it would remove that task and the following one aswell.
+                    localStorage.setItem("tasks", JSON.stringify(storedTasks));// And finally this will now Save and Update the tasks to the "localStorage".
+                    }
+                });
 
-                localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This stores the updated task again showing it changed to "Completed" with the "complete-Btn" and "edit-Btn" removed from the row.
+            localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This stores the updated task again showing it changed to "Completed" with the "complete-Btn" and "edit-Btn" removed from the row.
+
             });
             // This adds and "eventListener" to the "eventBtn" class and a funtion to follow.
             newTr.querySelector(".editBtn").addEventListener("click", function() {
@@ -120,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 newTr.remove(); // This removes the entire task row from the table.
                 const taskOrder = storedTasks.indexOf(task); // This will find the task's index in the "storedTasks" array.
                 if (taskOrder > -1) {
-                    storedTasks.splice(taskOrder, 1); // This will remove the task from the array.
+                    storedTasks.splice(taskOrder, 1); // This will remove the singular task from the array.As the numerical value shown means singular. If a higher number was put in its place i.e "2", then it would remove that task and the following one aswell.
                     localStorage.setItem("tasks", JSON.stringify(storedTasks)); // And finally this will now Save and Update the tasks to the "localStorage".
                 }
             })
