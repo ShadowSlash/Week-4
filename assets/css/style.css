@@ -109,7 +109,7 @@ body {
     color: white;
 }
 
-.complete-btn {
+.completeBtn {
     background-color: #4CAF50;
     color: white;
     padding: 8px 12px;
@@ -118,39 +118,22 @@ body {
     border-radius: 4px;
 }
 
-.complete-btn:hover {
+.completeBtn:hover {
     background-color:  rgba(112, 227, 116, 0.985);
 }
 
-.btn-box {
-    display: inline;
-    width: 100%;
+#newTaskBtn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
     margin-bottom: 20px;
 }
 
-#btn-1 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#btn-1:hover {
-    background-color:  rgba(112, 227, 116, 0.985);
-}
-
-#btn-2 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#btn-2:hover {
+#newTaskBtn:hover {
     background-color:  rgba(112, 227, 116, 0.985);
 }
 

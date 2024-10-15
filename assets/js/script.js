@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // These attach the following values by referencing them to a (DOM) variable to be used later on.
-    const newTaskBtn = document.getElementById("btn-1"); // This is attaching the "Create New Task" ID button to the "newTaskBtn" variable.
+    const newTaskBtn = document.getElementById("newTaskBtn"); // This is attaching the "Create New Task" ID button to the "newTaskBtn" variable.
 
     const taskInput = document.getElementById("taskInput"); // This attaches the "taskInput" ID, which will be whatever the user inputs as the new task in text to the "taskInput" variable.
 
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
                 <td class="taskDesc">${task.description}</td>
                 <td>${task.date}</td>
-                <td>
-                    <button class="complete-btn">Complete</button> 
+                <td class="comOr">
+                    <button class="completeBtn">Complete</button> 
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete Task</button>
                 </td>
@@ -70,13 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
             taskTableBody.appendChild(newTr);
 
             // Here it now adds a "eventListener", again of "click", to the "complete-Btn" class and a funtion to follow.
-            newTr.querySelector(".complete-btn").addEventListener("click", function() {
+            newTr.querySelector(".completeBtn").addEventListener("click", function() {
                 newTr.classList.toggle("completed"); // This toggles the "completed" class on the row where the task belong too.
                 task.status = newTr.classList.contains("completed") ? "Complete" : "Incomplete"; // This updates the "task.status" based on the class.
                 newTr.querySelector(".taskStatus").textContent = task.status; // This updates the displayed text for the new "taskStatus".
                 newTr.querySelector(".taskStatus").style.color = task.status === "Complete" ? "green" : "red"; // This is what will change the color of the text from green to red or vice versa depending on the value.
                 this.remove(); // This removes the button from the row when its pressed to be more user friendly.
                 newTr.querySelector(".editBtn").remove(); // This uses a "querySelector" to grab the edit button for it to also be removed when the complete button is pressed.
+                const comOr = newTr.querySelector(".comOr");
+                const comOrDesc = comOr.textContent; 
+                comOrDesc.innerHTML = `
+                    <button class="restoreBtn">Restore</button>
+                    <button class="deleteBtn">Delete</button>
+                `;
+
                 localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This stores the updated task again showing it changed to "Completed" with the "complete-Btn" and "edit-Btn" removed from the row.
             });
             // This adds and "eventListener" to the "eventBtn" class and a funtion to follow.
