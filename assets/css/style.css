@@ -193,11 +193,11 @@ body {
 }
 
 .cancelBtn:hover {
-    background-color:  rgba(112, 227, 116, 0.985);
+    background-color:  hsla(122, 67%, 75%);
 }
 
 .editBtn {
-    background-color: #4CAF50;
+    background-color: #398ecf;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -206,11 +206,11 @@ body {
 }
 
 .editBtn:hover {
-    background-color:  rgba(112, 227, 116, 0.985);
+    background-color:  hsl(206, 61%, 75%);
 }
 
 .deleteBtn {
-    background-color: #4CAF50;
+    background-color: #af4c4c;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -219,5 +219,18 @@ body {
 }
 
 .deleteBtn:hover {
-    background-color:  rgba(112, 227, 116, 0.985);
+    background-color:  hsl(0, 39%, 75%);
+}
+
+.restoreBtn {
+    background-color: hsl(57, 74%, 54%);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.restoreBtn:hover {
+    background-color:  hsl(57, 74%, 75%);
 }
