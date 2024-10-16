@@ -52,52 +52,33 @@ document.addEventListener("DOMContentLoaded", function () {
         
         // This is the funtion that adds a new task to the "taskTableBody"
         function addTaskToTable(task) {
-            const newTr = document.createElement("tr") // This creates a new "tr", table row element attaching it to the "newTr" variable.
-
+            const newTr = document.createElement("tr"); // This creates a new "tr", table row element attaching it to the "newTr" variable.
             // This sets the "innerHTML" of the newly created "tr" with the task details and adds 3 new buttons which have class attached to a function.
             newTr.innerHTML = `
-                <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
+                <td class="taskStatus" style="color: ${task.status === "Incomplete" ? "red" : "green"}">${task.status}</td> 
                 <td class="taskDesc">${task.description}</td>
                 <td>${task.date}</td>
                 <td>
-                    <button class="completeBtn">Complete</button> 
-                    <button class="editBtn">Edit</button>
-                    <button class="deleteBtn">Delete Task</button>
+                <button class="completeBtn">Complete</button>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete Task</button>
                 </td>
             `; // The 3 buttons are all grouped under 1 "td" so they all appear under 1 column. The rest are all structured with an individual "td" so they appear in individual columns. "?" acts as an if else statement, where if "Complete" is shown as green and if its something else then it will appear as red.
             
             // This adds the new row to the "taskTableBody" by appending it under the created "newTr".
             taskTableBody.appendChild(newTr);
-
+            
             // Here it now adds a "eventListener", again of "click", to the "complete-Btn" class and a funtion to follow.
             newTr.querySelector(".completeBtn").addEventListener("click", function() {
-                
+                newTr.classList.toggle("completed"); // This toggles the "completed" class on the row where the task belong too.
+                task.status = newTr.classList.contains("completed") ? "Complete" : "Incomplete"; // This updates the "task.status" based on the class.
                 newTr.querySelector(".taskStatus").textContent = task.status; // This updates the displayed text for the new "taskStatus".
                 newTr.querySelector(".taskStatus").style.color = task.status === "Complete" ? "green" : "red"; // This is what will change the color of the text from green to red or vice versa depending on the value.
-                this.remove(); // This removes the button from the row when its pressed to be more user friendly.
-                newTr.querySelector(".editBtn").remove(); // This uses a "querySelector" to grab the edit button for it to also be removed when the complete button is pressed.
-                
-                newTr.innerHTML = `
-                    <td class="taskStatus" style="color: ${task.status === "Complete" ? "green" : "red"}">${task.status}</td> 
-                    <td class="taskDesc">${task.description}</td>
-                    <td>${task.date}</td>
-                    <td>
-                        <button class="restoreBtn">Restore</button>
-                        <button class="deleteBtn">Delete Task</button>
-                    </td>
-                `;
-                newTr.querySelector(".deleteBtn").addEventListener("click", function() {
-                    newTr.remove(); // This removes the entire task row from the table.
-                    const taskOrder = storedTasks.indexOf(task); // This will find the task's index in the "storedTasks" array.
-                    if (taskOrder > -1) {
-                    storedTasks.splice(taskOrder, 1);// This will remove the singular task from the array.As the numerical value shown means singular. If a higher number was put in its place i.e "2", then it would remove that task and the following one aswell.
-                    localStorage.setItem("tasks", JSON.stringify(storedTasks));// And finally this will now Save and Update the tasks to the "localStorage".
-                    }
-                });
-
-            localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This stores the updated task again showing it changed to "Completed" with the "complete-Btn" and "edit-Btn" removed from the row.
-
+                // this.remove(); // This removes the button from the row when its pressed to be more user friendly.
+                // newTr.querySelector(".editBtn").remove(); // This uses a "querySelector" to grab the edit button for it to also be removed when the complete button is pressed.
+                localStorage.setItem("tasks", JSON.stringify(storedTasks)); // This stores the updated task again showing it changed to "Completed" with the "complete-Btn" and "edit-Btn" removed from the row.
             });
+
             // This adds and "eventListener" to the "eventBtn" class and a funtion to follow.
             newTr.querySelector(".editBtn").addEventListener("click", function() {
                 const taskDesc = newTr.querySelector(".taskDesc"); // This will select the task description cell which is a collection of all "td" or "th" elements in a table.

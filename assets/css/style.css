@@ -94,7 +94,7 @@ body {
 }
 
 .completed td {
-    text-decoration: line-through;
+    background-color: hsl(122, 39%, 85%);
 }
 
 .task-table th,
@@ -203,17 +203,4 @@ body {
 
 .deleteBtn:hover {
     background-color:  hsl(0, 39%, 75%);
-}
-
-.restoreBtn {
-    background-color: hsl(57, 74%, 54%);
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.restoreBtn:hover {
-    background-color:  hsl(57, 74%, 75%);
 }
